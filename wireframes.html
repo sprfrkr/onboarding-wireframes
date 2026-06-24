@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup &amp; Onboarding Wizard — Wireframes (LIF-CRO)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="onboarding.css">
+</head>
+<body>
+  <div class="gallery-layout">
+    <nav class="gallery-nav" aria-label="Screen index">
+      <h2>Wireframes</h2>
+      <div class="track-label">Account (both tracks)</div>
+      <a href="#account">Overview</a>
+      <a href="#u1">U1 Create account</a>
+      <a href="#u1-error">U1 Error state</a>
+      <a href="#u2">U2 Intent gate</a>
+      <a href="#u2-highlight">U2 Pre-highlight B</a>
+      <div class="nav-section-divider" aria-hidden="true"></div>
+      <a href="#tracks-fork" class="nav-fork-link">↓ Track fork</a>
+      <div class="track-label">App owner journey (Track A)</div>
+      <a href="#journey-a">Overview</a>
+      <a href="#s1">S1 Find your app</a>
+      <a href="#s2">S2 Keywords</a>
+      <a href="#s3">S3 Competitors</a>
+      <a href="#s4a">S4 Connect</a>
+      <a href="#s6a">S6 Done</a>
+      <div class="nav-section-divider" aria-hidden="true"></div>
+      <div class="track-label">Research journey (Track B)</div>
+      <a href="#journey-b">Overview</a>
+      <a href="#s1b">S1b Apps to follow</a>
+      <a href="#s4b">S4 Dashboard ready</a>
+    </nav>
+
+    <main class="gallery-main">
+      <header class="gallery-intro">
+        <h1>Signup &amp; Onboarding Wizard</h1>
+        <p>
+          Low-fidelity wireframes for LIF-CRO. One shell, value panel left, action panel right.
+          Spec: <code>post-signup-onboarding-wizard-outline.md</code> ·
+          Design: <code>design-direction.md</code>
+        </p>
+      </header>
+
+      <header class="journey-section-header journey-section-header--account" id="account">
+        <h2>Account (both tracks)</h2>
+        <p>U1 create account → U2 intent gate · shared entry before Track A or Track B</p>
+      </header>
+
+      <!-- ========== U1 ========== -->
+      <section class="screen-block" id="u1">
+        <div class="screen-meta">
+          <span class="badge both">Both tracks</span>
+          <span class="badge">Step 1 of 6 (A) / 4 (B)</span>
+          <span class="badge">Logged out</span>
+        </div>
+        <h2>U1 — Create your account</h2>
+        <p class="screen-id">Route: /signup · Auth: logged out · Matomo: Signup succeeded / failed</p>
+        <div class="wizard-frame">
+          <header class="wizard-header">
+            <img class="wizard-logo" src="assets/logo-appfigures.png" alt="Appfigures" width="237" height="40">
+            <div class="wizard-progress-wrap">
+              <div class="wizard-progress-label">Step 1 of 6</div>
+              <div class="wizard-progress-bar"><div class="wizard-progress-fill" style="width:17%"></div></div>
+            </div>
+            <a class="wizard-header-link" href="#">Log in</a>
+          </header>
+          <div class="wizard-body">
+            <div class="wizard-value">
+              <h1 class="wizard-headline">Start your free trial</h1>
+              <p class="wizard-subcopy">14 days free. No credit card. No code required. See your first app ranking insights in minutes.</p>
+              <div class="proof-logos">
+                <div class="proof-logos-label">Trusted by app teams at (replace w logos)</div>
+                <div class="proof-logos-row">
+                  <span class="proof-logo">Duolingo</span>
+                  <span class="proof-logo">Adobe</span>
+                  <span class="proof-logo">Airbnb</span>
+                  <span class="proof-logo">Microsoft</span>
+                  <span class="proof-logo">Shopify</span>
+                  <span class="proof-logo">Slack</span>
+                </div>
+              </div>
+            </div>
+            <div class="wizard-action">
+              <div class="field-group">
+                <label class="field-label" for="u1-email">Work email</label>
+                <input class="field-input" id="u1-email" type="email" placeholder="you@company.com" value="">
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="u1-name">Full name</label>
+                <input class="field-input" id="u1-name" type="text" placeholder="Jane Smith" value="">
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="u1-pw">Password</label>
+                <input class="field-input" id="u1-pw" type="password" placeholder="Min. 8 characters" value="">
+                <div class="field-hint">Use 8+ characters with a mix of letters and numbers.</div>
+              </div>
+              <button type="button" class="btn-primary">Create account</button>
+              <p class="login-prompt">Already have an account? <a href="#">Log in</a></p>
+              <p class="legal-links">By creating an account you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+            </div>
+          </div>
+        </div>
+        <div class="wf-annotation">Headline overrides: ASO trial, app intelligence, Explorer, SDK track_sdk (no duration in H1). Subcopy always carries 14 days + no CC + no code required. No company field. OAuth stays on /login only.</div>
+      </section>
+
+      <!-- ========== U1 ERROR ========== -->
+      <section class="screen-block" id="u1-error">
+        <div class="screen-meta">
+          <span class="badge both">Both tracks</span>
+          <span class="badge">Error state</span>
+        </div>
+        <h2>U1 — Duplicate email error</h2>
+        <p class="screen-id">Inline alert above form; email field red border</p>
+        <div class="wizard-frame">
+          <header class="wizard-header">
+            <img class="wizard-logo" src="assets/logo-appfigures.png" alt="Appfigures" width="237" height="40">
+            <div class="wizard-progress-wrap">
+              <div class="wizard-progress-label">Step 1 of 6</div>
+              <div class="wizard-progress-bar"><div class="wizard-progress-fill" style="width:17%"></div></div>
+            </div>
+            <a class="wizard-header-link" href="#">Log in</a>
+          </header>
+          <div class="wizard-body">
+            <div class="wizard-value">
+              <h1 class="wizard-headline">Start your free trial</h1>
+              <p class="wizard-subcopy">14 days free. No credit card. No code required.</p>
+              <div class="proof-logos">
+                <div class="proof-logos-label">Trusted by app teams at (replace w logos)</div>
+                <div class="proof-logos-row">
+                  <span class="proof-logo">Duolingo</span>
+                  <span class="proof-logo">Adobe</span>
+                  <span class="proof-logo">Airbnb</span>
+                </div>
+              </div>
+            </div>
+            <div class="wizard-action">
+              <div class="alert-error">An account with this email already exists. Log in to continue.</div>
+              <div class="field-group">
+                <label class="field-label">Work email</label>
+                <input class="field-input field-error" type="email" value="jane@acme.com">
+              </div>
+              <div class="field-group">
+                <label class="field-label">Full name</label>
+                <input class="field-input" type="text" value="Jane Smith">
+              </div>
+              <div class="field-group">
+                <label class="field-label">Password</label>
+                <input class="field-input" type="password" value="••••••••">
+              </div>
+              <button type="button" class="btn-primary">Create account</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== U2 ========== -->
+      <section class="screen-block" id="u2">
+        <div class="screen-meta">
+          <span class="badge both">Both tracks</span>
+          <span class="badge">Step 2 of 6 / 4</span>
+          <span class="badge">Logged in</span>
+        </div>
+        <h2>U2 — What are you here to do?</h2>
+        <p class="screen-id">Intent gate · Writes onboarding_track A|B · Matomo: Onboarding intent A/B</p>
+        <div class="wizard-frame">
+          <header class="wizard-header">
+            <img class="wizard-logo" src="assets/logo-appfigures.png" alt="Appfigures" width="237" height="40">
+            <div class="wizard-progress-wrap">
+              <div class="wizard-progress-label">Step 2 of 6</div>
+              <div class="wizard-progress-bar"><div class="wizard-progress-fill" style="width:33%"></div></div>
+            </div>
+            <div class="wizard-header-spacer"></div>
+          </header>
+          <div class="wizard-body">
+            <div class="wizard-value">
+              <h1 class="wizard-headline">What are you here to do?</h1>
+              <p class="wizard-subcopy">Choose a path so we can set up the right first dashboard.</p>
+              <div class="proof-logos">
+                <div class="proof-logos-label">Trusted by app teams at (replace w logos)</div>
+                <div class="proof-logos-row">
+                  <span class="proof-logo">Duolingo</span>
+                  <span class="proof-logo">Adobe</span>
+                  <span class="proof-logo">Epic Games</span>
+                  <span class="proof-logo">Vimeo</span>
+                </div>
+              </div>
+            </div>
+            <div class="wizard-action">
+              <div class="path-cards">
+                <div class="path-card">
+                  <div class="path-card-icon">📱</div>
+                  <div>
+                    <div class="path-card-title">Grow my app</div>
+                    <div class="path-card-desc">Track rankings, keywords, and competitors for an app I own or market.</div>
+                  </div>
+                </div>
+                <div class="path-card">
+                  <div class="path-card-icon">🔍</div>
+                  <div>
+                    <div class="path-card-title">Research apps or markets</div>
+                    <div class="path-card-desc">Follow apps and compare market signals without connecting a store.</div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn-primary" disabled>Continue</button>
+              <div class="wizard-footer-actions">
+                <button type="button" class="link-back">Back</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-annotation">Continue enabled when a path card is selected. No skip on U2: intent is required for track-specific setup and nurture email.</div>
+      </section>
+
+      <!-- ========== U2 HIGHLIGHT ========== -->
+      <section class="screen-block screen-block--account-end" id="u2-highlight">
+        <div class="screen-meta">
+          <span class="badge both">Both tracks</span>
+          <span class="badge">?intent= pre-highlight</span>
+        </div>
+        <h2>U2 — Pre-highlighted Track B</h2>
+        <p class="screen-id">Entry from /explorer or ?intent=research · User still confirms</p>
+        <div class="wizard-frame">
+          <header class="wizard-header">
+            <img class="wizard-logo" src="assets/logo-appfigures.png" alt="Appfigures" width="237" height="40">
+            <div class="wizard-progress-wrap">
+              <div class="wizard-progress-label">Step 2 of 4</div>
+              <div class="wizard-progress-bar"><div class="wizard-progress-fill" style="width:50%"></div></div>
+            </div>
+            <div class="wizard-header-spacer"></div>
+          </header>
+          <div class="wizard-body">
+            <div class="wizard-value">
+              <h1 class="wizard-headline">What are you here to do?</h1>
+              <p class="wizard-subcopy">Choose a path so we can set up the right first dashboard.</p>
+            </div>
+            <div class="wizard-action">
+              <div class="path-cards">
+                <div class="path-card">
+                  <div class="path-card-icon">📱</div>
+                  <div>
+                    <div class="path-card-title">Grow my app</div>
+                    <div class="path-card-desc">Track rankings, keywords, and competitors for an app I own or market.</div>
+                  </div>
+                </div>
+                <div class="path-card selected">
+                  <div class="path-card-icon">🔍</div>
+                  <div>
+                    <div class="path-card-title">Research apps or markets</div>
+                    <div class="path-card-desc">Follow apps and compare market signals without connecting a store.</div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn-primary">Continue</button>
+              <div class="wizard-footer-actions">
+                <button type="button" class="link-back">Back</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="journey-fork-break" id="tracks-fork" aria-label="Intent tracks diverge after account setup">
+        <p class="journey-fork-eyebrow">End of shared account flow</p>
+        <h3 class="journey-fork-title">Tracks diverge after U2</h3>
+        <p class="journey-fork-desc">Everything above is common to both intents. Below are two separate wireframe galleries: app owner setup (Track A) and research setup (Track B).</p>
+        <div class="journey-fork-diagram" aria-hidden="true">
+          <span class="journey-fork-node">U1 · U2</span>
+          <span class="journey-fork-arrow">↓</span>
+          <div class="journey-fork-branches">
+            <span class="journey-fork-branch journey-fork-branch--a">Track A · App owner</span>
+            <span class="journey-fork-branch journey-fork-branch--b">Track B · Research</span>
+          </div>
+        </div>
+      </div>
+
+      <header class="journey-section-header journey-section-header--track journey-section-header--track-a" id="journey-a">
+        <h2>App owner journey (Track A)</h2>
+        <p>U2 → S1 app → S2 keywords → S3 competitors → S4 connect → S6 done (6 wizard steps after account)</p>
+      </header>
+
+      <!-- ========== S1 ========== -->
+      <section class="screen-block" id="s1">
+        <div class="screen-meta">
+          <span class="badge track-a">Track A</span>
+          <span class="badge">Step 3 of 6</span>
+        </div>
+        <h2>S1 — Find your app</h2>
+        <p class="screen-id">UnifiedAppSearchField · Hero proof left, compact result row right (single preview)</p>
+        <div class="wizard-frame">
+          <header class="wizard-header">
+            <img class="wizard-logo" src="assets/logo-appfigures.png" alt="Appfigures" width="237" height="40">
+            <div class="wizard-progress-wrap">
+              <div class="wizard-progress-label">Step 3 of 6</div>
+              <div class="wizard-progress-bar"><div class="wizard-progress-fill" style="width:50%"></div></div>
+            </div>
+            <div class="wizard-header-spacer"></div>
+          </header>
+          <div class="wizard-body">
+            <div class="wizard-value">
+              <h1 class="wizard-headline">Choose the app you want to grow</h1>
+              <p class="wizard-subcopy">Search for your app and we'll set up rankings, keywords, and competitor benchmarks around it.</p>
+              <div class="app-hero-proof">
+                <div class="app-hero-proof-header">
+                  <img class="app-hero-icon" src="assets/headspace-icon.jpg" alt="Headspace" width="72" height="72">
+                  <div>
+                    <p class="app-hero-name">Headspace: Sleep &amp; Meditation</p>
+                    <p class="app-hero-meta">Headspace Inc. · Health &amp; Fitness · App Store · US</p>
+                  </div>
+                </div>
+                <div class="app-hero-stats">
+                  <span class="stat-chip">47 ranked keywords</span>
+                  <span class="stat-chip">#12 in Meditation</span>
+                  <span class="stat-chip">4.8 ★ · 1.2M ratings</span>
+                </div>
+              </div>
+            </div>
+            <div class="wizard-action">
+              <div class="search-wrap">
+                <span class="search-icon">⌕</span>
+                <input class="search-input" type="text" placeholder="Search by app name or URL" value="Headspace">
+              </div>
+              <div class="search-results" role="listbox" aria-label="Search results">
+                <div class="search-result-row selected" role="option" aria-selected="true">
+                  <img class="row-icon" src="assets/headspace-icon.jpg" alt="" width="36" height="36">
+                  <div class="row-text">
+                    <div class="row-name">Headspace: Sleep &amp; Meditation</div>
+                    <div class="row-meta">Headspace Inc. · App Store</div>
+                  </div>
+                  <span class="row-check">✓</span>
+                </div>
+                <div class="search-result-row" role="option">
+                  <img class="row-icon" src="assets/calm-icon.jpg" alt="" width="36" height="36">
+                  <div class="row-text">
+                    <div class="row-name">Calm</div>
+                    <div class="row-meta">Calm.com · App Store</div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn-primary">Continue</button>
+              <div class="wizard-footer-actions">
+                <button type="button" class="link-back">Back</button>
+                <button type="button" class="link-skip">I'm researching apps instead</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-annotation">One preview only: value panel hero grows on select; action panel stays search + compact result rows (matches UnifiedAppSearchField). Skip → Track B.</div>
+      </section>
+
+      <!-- ========== S2 ========== -->
+      <section class="screen-block" id="s2">
+        <div class="screen-meta">
+          <span class="badge track-a">Track A</span>
+          <span class="badge">Step 4 of 6</span>
+        </div>
+        <h2>S2 — Keywords (healthy ranks)</h2>
+        <p class="screen-id">Ranked keywords API · top 6 pre-checked · useSaveKeywords · tracked_keyword milestone</p>
+        <div class="wizard-frame">
+          <header class="wizard-header">
+            <img class="wizard-logo" src="assets/logo-appfigures.png" alt="Appfigures" width="237" height="40">
+            <div class="wizard-progress-wrap">
+              <div class="wizard-progress-label">Step 4 of 6</div>
+              <div class="wizard-progress-bar"><div class="wizard-progress-fill" style="width:67%"></div></div>
+            </div>
+            <div class="wizard-header-spacer"></div>
+          </header>
+          <div class="wizard-body">
+            <div class="wizard-value">
+              <h1 class="wizard-headline">Start with keywords Headspace already ranks for</h1>
+              <p class="wizard-subcopy">We pre-selected the terms most likely to show useful movement. Adjust the list or add your own.</p>
+            </div>
+            <div class="wizard-action">
+              <div class="chip-list">
+                <span class="keyword-chip checked">meditation <span class="rank">#3</span></span>
+                <span class="keyword-chip checked">mindfulness <span class="rank">#8</span></span>
+                <span class="keyword-chip checked">sleep <span class="rank">#12</span></span>
+                <span class="keyword-chip checked">anxiety relief <span class="rank">#15</span></span>
+                <span class="keyword-chip checked">guided meditation <span class="rank">#18</span></span>
+                <span class="keyword-chip checked">stress <span class="rank">#22</span></span>
+                <span class="keyword-chip">calm app <span class="rank">#31</span></span>
+                <span class="keyword-chip">breathing <span class="rank">#44</span></span>
+              </div>
+              <div class="chip-counter">6 of 10 selected</div>
+              <div class="keyword-add-row">
+                <input class="field-input keyword-add-input" type="text" placeholder="Add a keyword" aria-label="Add a keyword">
+                <button type="button" class="btn-add-keyword">Add</button>
+              </div>
+              <button type="button" class="btn-primary">Use these keywords</button>
+              <div class="wizard-footer-actions">
+                <button type="button" class="link-back">Back</button>
+                <button type="button" class="link-skip">Skip for now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-annotation">Primary CTA accepts defaults in one click. Data: DiscoverRankedKeywords / RankedKeywords numeric datasets (position + popularity). Save via useSaveKeywords(). Country/device default from S1 app (US + primary storefront) unless user changed in product context.</div>
+      </section>
+
+      <!-- ========== S3 ========== -->
+      <section class="screen-block" id="s3">
+        <div class="screen-meta">
+          <span class="badge track-a">Track A</span>
+          <span class="badge">Step 5 of 6</span>
+        </div>
+        <h2>S3 — Competitors</h2>
+        <p class="screen-id">`/api/products/{id}/related` · useFetchSimilarProducts · 3 default selected · useCompetitorActions</p>
+        <div class="wizard-frame">
+          <header class="wizard-header">
+            <img class="wizard-logo" src="assets/logo-appfigures.png" alt="Appfigures" width="237" height="40">
+            <div class="wizard-progress-wrap">
+              <div class="wizard-progress-label">Step 5 of 6</div>
+              <div class="wizard-progress-bar"><div class="wizard-progress-fill" style="width:83%"></div></div>
+            </div>
+            <div class="wizard-header-spacer"></div>
+          </header>
+          <div class="wizard-body">
+            <div class="wizard-value">
+              <h1 class="wizard-headline">Compare Headspace against similar apps</h1>
+              <p class="wizard-subcopy">We found likely competitors from the app catalog. Keep these or add the apps you watch most closely.</p>
+            </div>
+            <div class="wizard-action">
+              <div class="competitor-grid">
+                <div class="competitor-tile selected">
+                  <img class="competitor-icon" src="assets/calm-icon.jpg" alt="" width="36" height="36" style="border-radius:8px;object-fit:cover">
+                  <span class="competitor-name">Calm</span>
+                  <span class="competitor-check"></span>
+                </div>
+                <div class="competitor-tile selected">
+                  <img class="competitor-icon" src="assets/insight-timer-icon.jpg" alt="" width="36" height="36" style="border-radius:8px;object-fit:cover">
+                  <span class="competitor-name">Insight Timer</span>
+                  <span class="competitor-check"></span>
+                </div>
+                <div class="competitor-tile selected">
+                  <img class="competitor-icon" src="assets/happier-meditation-icon.jpg" alt="" width="36" height="36" style="border-radius:8px;object-fit:cover">
+                  <span class="competitor-name">Happier Meditation</span>
+                  <span class="competitor-check"></span>
+                </div>
+                <div class="competitor-tile">
+                  <img class="competitor-icon" src="assets/balance-icon.jpg" alt="" width="36" height="36" style="border-radius:8px;object-fit:cover">
+                  <span class="competitor-name">Balance</span>
+                  <span class="competitor-check"></span>
+                </div>
+              </div>
+              <div class="competitor-add-section">
+                <label class="field-label" for="s3-competitor-search">Search to add another app</label>
+                <div class="search-wrap">
+                  <span class="search-icon">⌕</span>
+                  <input class="search-input" id="s3-competitor-search" type="text" placeholder="Search by app name" aria-label="Search for a competitor app">
+                </div>
+              </div>
+              <button type="button" class="btn-primary">Use these competitors</button>
+              <div class="wizard-footer-actions">
+                <button type="button" class="link-back">Back</button>
+                <button type="button" class="link-skip">Skip for now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-annotation">Primary CTA accepts the 3 pre-selected similar apps. Fetch: GET `/api/products/{primary_product_id}/related?count=40` (useFetchSimilarProducts). Save: useCompetitorActions.addCompetitors().</div>
+      </section>
+
+      <!-- ========== S4a ========== -->
+      <section class="screen-block" id="s4a">
+        <div class="screen-meta">
+          <span class="badge track-a">Track A</span>
+          <span class="badge">Step 6 of 6</span>
+          <span class="badge">Connect benefits + action</span>
+        </div>
+        <h2>S4 — Connect your store (Track A)</h2>
+        <p class="screen-id">Benefits left · store tiles right · merged former S5 · skip allowed · /account/externals#/add</p>
+        <div class="wizard-frame">
+          <header class="wizard-header">
+            <img class="wizard-logo" src="assets/logo-appfigures.png" alt="Appfigures" width="237" height="40">
+            <div class="wizard-progress-wrap">
+              <div class="wizard-progress-label">Step 6 of 6</div>
+              <div class="wizard-progress-bar"><div class="wizard-progress-fill" style="width:100%"></div></div>
+            </div>
+            <div class="wizard-header-spacer"></div>
+          </header>
+          <div class="wizard-body">
+            <div class="wizard-value">
+              <h1 class="wizard-headline">Replace estimates with your real performance</h1>
+              <p class="wizard-subcopy">Connect your store to see actual downloads, revenue, and keyword-driven installs for Headspace.</p>
+              <ul class="connect-benefits connect-benefits-compact">
+                <li class="connect-benefit-item">
+                  <span class="connect-benefit-icon" aria-hidden="true">↓</span>
+                  <span class="connect-benefit-text">Downloads and revenue from your store</span>
+                </li>
+                <li class="connect-benefit-item">
+                  <span class="connect-benefit-icon" aria-hidden="true">◎</span>
+                  <span class="connect-benefit-text">Which keywords drive installs</span>
+                </li>
+                <li class="connect-benefit-item">
+                  <span class="connect-benefit-icon" aria-hidden="true">⚖</span>
+                  <span class="connect-benefit-text">Competitor benchmarks with your data</span>
+                </li>
+              </ul>
+              <p class="connect-trust">Read-only access · about 2 minutes · we never write to your store</p>
+            </div>
+            <div class="wizard-action">
+              <p class="action-panel-label">Choose your store</p>
+              <div class="store-tiles">
+                <div class="store-tile">
+                  <div class="store-tile-icon">
+                    <img src="assets/icon-app-store-connect.png" alt="" width="40" height="40">
+                  </div>
+                  <div>
+                    <div class="store-tile-label">Apple App Store Connect</div>
+                    <div class="store-tile-sub">iOS · read-only API key</div>
+                  </div>
+                </div>
+                <div class="store-tile">
+                  <div class="store-tile-icon">
+                    <img src="assets/icon-google-play-console.png" alt="" width="40" height="40">
+                  </div>
+                  <div>
+                    <div class="store-tile-label">Google Play Console</div>
+                    <div class="store-tile-sub">Android · service account</div>
+                  </div>
+                </div>
+              </div>
+              <div class="wizard-footer-actions" style="margin-top:1.25rem">
+                <button type="button" class="link-back">Back</button>
+                <button type="button" class="link-skip">I'll connect later</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-annotation">No setup summary on this step. Value = connect benefits. Former S5 store picker merged here (Track A is now 6 wizard steps + S6 exit).</div>
+      </section>
+
+      <!-- ========== S6a ========== -->
+      <section class="screen-block screen-block--track-a-end" id="s6a">
+        <div class="screen-meta">
+          <span class="badge track-a">Track A</span>
+          <span class="badge">Exit</span>
+        </div>
+        <h2>S6 — Done (Track A)</h2>
+        <p class="screen-id">Land: App Profile or Keyword Performance · Matomo: Onboarding completed</p>
+        <div class="wizard-frame">
+          <header class="wizard-header">
+            <img class="wizard-logo" src="assets/logo-appfigures.png" alt="Appfigures" width="237" height="40">
+            <div class="wizard-progress-wrap">
+              <div class="wizard-progress-label">Complete</div>
+              <div class="wizard-progress-bar"><div class="wizard-progress-fill" style="width:100%"></div></div>
+            </div>
+            <div class="wizard-header-spacer"></div>
+          </header>
+          <div class="wizard-body">
+            <div class="wizard-value">
+              <h1 class="wizard-headline">Your Headspace dashboard is ready</h1>
+              <p class="wizard-subcopy">Open your dashboard to see rankings, tracked keywords, and competitor benchmarks in one place.</p>
+              <div class="done-setup-card">
+                <div class="done-setup-app">
+                  <img class="done-setup-app-icon" src="assets/headspace-icon.jpg" alt="" width="48" height="48">
+                  <div>
+                    <div class="done-setup-app-name">Headspace</div>
+                    <div class="done-setup-app-meta">Primary app · US App Store</div>
+                  </div>
+                </div>
+                <div class="done-setup-stats">
+                  <span class="done-stat">6 keywords tracked</span>
+                  <span class="done-stat">3 competitors</span>
+                </div>
+              </div>
+              <ul class="done-value-list" aria-label="What you'll see in your dashboard">
+                <li class="done-value-item">
+                  <span class="done-value-icon" aria-hidden="true">◎</span>
+                  <span class="done-value-text">Live ranks for meditation, mindfulness, sleep, and your other tracked terms</span>
+                </li>
+                <li class="done-value-item">
+                  <span class="done-value-icon" aria-hidden="true">⚖</span>
+                  <span class="done-value-text">Side-by-side visibility vs Calm, Insight Timer, and Happier Meditation</span>
+                </li>
+                <li class="done-value-item">
+                  <span class="done-value-icon" aria-hidden="true">↓</span>
+                  <span class="done-value-text">Keyword gaps and opportunities to prioritize next</span>
+                </li>
+              </ul>
+            </div>
+            <div class="wizard-action done-action-panel">
+              <div class="done-icon">✓</div>
+              <p class="done-action-lead">Everything is configured. Your first insights are waiting.</p>
+              <button type="button" class="btn-primary">Go to dashboard</button>
+              <div class="done-reminder">Skipped store connect? <a href="#">Connect App Store or Google Play</a> for real revenue data.</div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-annotation">Value panel: personalized setup recap + 3 outcome teasers (from provisioned app, keywords, competitors). CTA stays generic per spec; routing to App Profile / Keyword Performance happens behind the button.</div>
+      </section>
+
+      <header class="journey-section-header journey-section-header--track journey-section-header--track-b" id="journey-b">
+        <h2>Research journey (Track B)</h2>
+        <p>U2 → S1b apps to follow → S4 dashboard ready (exit)</p>
+      </header>
+
+      <!-- ========== S1b ========== -->
+      <section class="screen-block" id="s1b">
+        <div class="screen-meta">
+          <span class="badge track-b">Track B</span>
+          <span class="badge">Step 3 of 4</span>
+        </div>
+        <h2>S1b — Apps to follow</h2>
+        <p class="screen-id">Multi-select · suggestions + search · no main vs competitor UX (eng maps provisioning)</p>
+        <div class="wizard-frame">
+          <header class="wizard-header">
+            <img class="wizard-logo" src="assets/logo-appfigures.png" alt="Appfigures" width="237" height="40">
+            <div class="wizard-progress-wrap">
+              <div class="wizard-progress-label">Step 3 of 4</div>
+              <div class="wizard-progress-bar"><div class="wizard-progress-fill" style="width:75%"></div></div>
+            </div>
+            <div class="wizard-header-spacer"></div>
+          </header>
+          <div class="wizard-body">
+            <div class="wizard-value">
+              <h1 class="wizard-headline">Which apps do you want to watch?</h1>
+              <p class="wizard-subcopy">Add apps you're researching. We'll keep them ready on your dashboard so you can compare them later.</p>
+            </div>
+            <div class="wizard-action">
+              <div class="competitor-grid">
+                <div class="competitor-tile selected">
+                  <img class="competitor-icon" src="assets/calm-icon.jpg" alt="" width="36" height="36" style="border-radius:8px;object-fit:cover">
+                  <span class="competitor-name">Calm</span>
+                  <span class="competitor-check"></span>
+                </div>
+                <div class="competitor-tile selected">
+                  <img class="competitor-icon" src="assets/headspace-icon.jpg" alt="" width="36" height="36" style="border-radius:8px;object-fit:cover">
+                  <span class="competitor-name">Headspace</span>
+                  <span class="competitor-check"></span>
+                </div>
+                <div class="competitor-tile selected">
+                  <img class="competitor-icon" src="assets/insight-timer-icon.jpg" alt="" width="36" height="36" style="border-radius:8px;object-fit:cover">
+                  <span class="competitor-name">Insight Timer</span>
+                  <span class="competitor-check"></span>
+                </div>
+                <div class="competitor-tile">
+                  <img class="competitor-icon" src="assets/bettersleep-icon.jpg" alt="" width="36" height="36" style="border-radius:8px;object-fit:cover">
+                  <span class="competitor-name">BetterSleep</span>
+                  <span class="competitor-check"></span>
+                </div>
+              </div>
+              <div class="competitor-add-section">
+                <label class="field-label" for="s1b-app-search">Search to add an app</label>
+                <div class="search-wrap">
+                  <span class="search-icon">⌕</span>
+                  <input class="search-input" id="s1b-app-search" type="text" placeholder="Search by app name" aria-label="Search for an app to follow">
+                </div>
+              </div>
+              <button type="button" class="btn-primary">Continue</button>
+              <div class="wizard-footer-actions">
+                <button type="button" class="link-back">Back</button>
+                <button type="button" class="link-skip">Browse on my own</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-annotation">Merged former S1b + S3b. User never picks "main" vs "competitor"; eng provisions a flat followed-apps list (open question: map to comparison set, watchlist, or first=primary).</div>
+      </section>
+
+      <!-- ========== S4b ========== -->
+      <section class="screen-block screen-block--track-b-end" id="s4b">
+        <div class="screen-meta">
+          <span class="badge track-b">Track B</span>
+          <span class="badge">Step 4 of 4</span>
+          <span class="badge">Exit</span>
+        </div>
+        <h2>S4 — Dashboard ready (Track B)</h2>
+        <p class="screen-id">Light confirmation before land · no anchor/competitor split</p>
+        <div class="wizard-frame">
+          <header class="wizard-header">
+            <img class="wizard-logo" src="assets/logo-appfigures.png" alt="Appfigures" width="237" height="40">
+            <div class="wizard-progress-wrap">
+              <div class="wizard-progress-label">Step 4 of 4</div>
+              <div class="wizard-progress-bar"><div class="wizard-progress-fill" style="width:100%"></div></div>
+            </div>
+            <div class="wizard-header-spacer"></div>
+          </header>
+          <div class="wizard-body">
+            <div class="wizard-value">
+              <h1 class="wizard-headline">Your app watchlist is ready</h1>
+              <p class="wizard-subcopy">These apps are saved to your dashboard so you can track market signals and compare them anytime.</p>
+              <ul class="s4b-followed-list" aria-label="Apps you are following">
+                <li class="s4b-followed-row">
+                  <img src="assets/calm-icon.jpg" alt="" width="32" height="32">
+                  <span class="s4b-followed-name">Calm</span>
+                </li>
+                <li class="s4b-followed-row">
+                  <img src="assets/headspace-icon.jpg" alt="" width="32" height="32">
+                  <span class="s4b-followed-name">Headspace</span>
+                </li>
+                <li class="s4b-followed-row">
+                  <img src="assets/insight-timer-icon.jpg" alt="" width="32" height="32">
+                  <span class="s4b-followed-name">Insight Timer</span>
+                </li>
+              </ul>
+              <ul class="done-value-list" aria-label="What you can do next">
+                <li class="done-value-item">
+                  <span class="done-value-icon" aria-hidden="true">⚖</span>
+                  <span class="done-value-text">Compare rankings and store visibility across your followed apps</span>
+                </li>
+                <li class="done-value-item">
+                  <span class="done-value-icon" aria-hidden="true">◎</span>
+                  <span class="done-value-text">Track listing updates and category movement over time</span>
+                </li>
+                <li class="done-value-item">
+                  <span class="done-value-icon" aria-hidden="true">↓</span>
+                  <span class="done-value-text">Open deeper reports for any app when you need more detail</span>
+                </li>
+              </ul>
+            </div>
+            <div class="wizard-action done-action-panel">
+              <p class="done-action-lead">Open your dashboard to start exploring.</p>
+              <button type="button" class="btn-primary">Go to dashboard</button>
+              <div class="wizard-footer-actions">
+                <button type="button" class="link-back">Back</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-annotation">Track B exit screen (no separate S6). Value panel = followed-apps row list + research teasers. Land: default dashboard. Matomo: Onboarding completed on CTA.</div>
+      </section>
+
+    </main>
+  </div>
+  <script>
+    // Highlight nav link for the screen in view
+    const navLinks = document.querySelectorAll('.gallery-nav a');
+    const sections = document.querySelectorAll('.screen-block');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px' });
+    sections.forEach((section) => observer.observe(section));
+  </script>
+</body>
+</html>
